@@ -53,12 +53,9 @@ def 작명(data : Model):
 # 또한 DB접속도 가능! 
 # DB접속해주세요~~~
 
-@app.get("/")
+@app.get("/aaa")
 async def 작명():
     # DB에서 데이터 꺼내주세요~~~ 
     # await 를 이용해서 비동기 처리도 가능함 즉, async - await 조합으로 비동기처리가 가능함
     return FileResponse('index.html')
-
-
-
 
