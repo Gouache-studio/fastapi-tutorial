@@ -1,7 +1,7 @@
 from typing import List
 from fastapi import APIRouter, File, UploadFile, HTTPException
-from app.utils.file_utils import process_files
-from app.config import SAVE_DIR
+from utils.file_utils import process_files
+from config import SAVE_DIR
 
 
 router = APIRouter()
@@ -27,7 +27,6 @@ async def upload_files(
         raise HTTPException(status_code=400, detail="MV images not provided")
     
     try:
-        
         if not any([tracks, album_covers, album_booklets, mvs, mv_imgs]):
             raise HTTPException(status_code=422, detail="At least one parameter must be provided.")
 
@@ -40,7 +39,6 @@ async def upload_files(
         }
         
         # 모든 파일 리스트가 비어 있는지 확인
-        print(response_data)
         all_empty = all(not response_data[key][0] for key in response_data)
         
         # 하나라도 파일이 있으면 success를 True로 설정
